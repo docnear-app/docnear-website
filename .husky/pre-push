@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo "🚀 Running pre-push checks..."
+
+# Full lint check
+echo "🔍 Linting..."
+pnpm lint
+
+# TypeScript check
+echo "🔷 Type checking..."
+pnpm type-check
+
+# Build check — catches any build-breaking issues before push
+echo "🏗️  Build check..."
+pnpm build
+
+echo "✅ Pre-push checks passed!"
